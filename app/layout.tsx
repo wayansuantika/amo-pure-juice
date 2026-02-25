@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     "0.0% alcohol",
     "premium juice",
     "go green beverage",
+    "halal juice",
+    "BPOM certified",
+    "Moscato grape juice",
   ],
   openGraph: {
     title: "AMO Pure Juice | 0.0% Alcohol Grape Juice",
@@ -36,12 +39,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.amopurejuice.com",
     siteName: "AMO Pure Juice",
+    images: [
+      {
+        url: "/amo.avif",
+        width: 600,
+        height: 900,
+        alt: "AMO Love Potion Pure Juice 750ml bottle - 0.0% alcohol grape juice",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AMO Pure Juice | 0.0% Alcohol Grape Juice",
     description:
       "Premium non-alcoholic grape juice with elegant taste notes and a go-green philosophy.",
+    images: ["/amo.avif"],
   },
   alternates: {
     canonical: "/",
@@ -49,6 +61,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 };
 
@@ -61,6 +76,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>

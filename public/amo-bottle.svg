@@ -1,0 +1,16 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1200" rx="80" fill="#DCFCE7"/>
+  <ellipse cx="450" cy="1080" rx="240" ry="52" fill="#86EFAC"/>
+  <rect x="380" y="120" width="140" height="160" rx="36" fill="#166534"/>
+  <rect x="300" y="240" width="300" height="760" rx="130" fill="#15803D"/>
+  <rect x="332" y="330" width="236" height="210" rx="28" fill="#F0FDF4"/>
+  <rect x="332" y="560" width="236" height="220" rx="28" fill="#DCFCE7"/>
+  <text x="450" y="420" text-anchor="middle" fill="#166534" font-size="46" font-family="Arial" font-weight="700">AMO</text>
+  <text x="450" y="472" text-anchor="middle" fill="#166534" font-size="28" font-family="Arial" font-weight="700">PURE JUICE</text>
+  <text x="450" y="640" text-anchor="middle" fill="#166534" font-size="30" font-family="Arial" font-weight="700">LOVE POTION</text>
+  <text x="450" y="690" text-anchor="middle" fill="#166534" font-size="24" font-family="Arial">750 ML</text>
+  <text x="450" y="736" text-anchor="middle" fill="#166534" font-size="24" font-family="Arial">ABV 0%</text>
+  <circle cx="368" cy="885" r="22" fill="#BBF7D0"/>
+  <circle cx="448" cy="885" r="22" fill="#BBF7D0"/>
+  <circle cx="528" cy="885" r="22" fill="#BBF7D0"/>
+</svg>
