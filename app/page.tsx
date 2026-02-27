@@ -1,326 +1,129 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6282146804175";
+const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+6285713333536").replace(/\D/g, "");
 const whatsappMessage = encodeURIComponent(
-  "Hi AMO Pure Juice, I want to order AMO Love Potion Pure Juice 750 ml."
+  "Hi AMO Pure Juice, I want to order AMO Love Potion Pure Juice."
 );
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 export const metadata: Metadata = {
-  title: "0.0% Alcohol Grape Juice | AMO Pure Juice",
+  title: "Let’s Drink | AMO Pure Juice",
   description:
-    "Discover AMO Love Potion Pure Juice 750 ml, a premium 0.0% alcohol grape juice with elegant sparkling character and a go-green philosophy.",
+    "Modern premium beverage landing page for AMO Pure Juice with bold hero composition and direct order flow.",
 };
 
-const tasteNotes = [
+const productDetails = [
+  { icon: "🍾", label: "750 ml" },
+  { icon: "🚫", label: "ABV 0%" },
   { icon: "🍇", label: "Moscato Grapes" },
   { icon: "🍈", label: "Honey Melon Aroma" },
   { icon: "🥭", label: "Passion Fruit Finish" },
 ];
 
-const keyFacts = [
-  { icon: "🍾", label: "750 ml" },
-  { icon: "🚫", label: "ABV 0%" },
-];
-
-const highlights = [
-  {
-    title: "0.0% Alcohol",
-    description: "The celebration feel, fully alcohol-free for conscious moments.",
-  },
-  {
-    title: "Premium Grapes",
-    description: "Crafted from selected grapes for a rich and refined taste profile.",
-  },
-  {
-    title: "AMO Pure Juice",
-    description: "Built for mindful lifestyle choices and cleaner beverage experiences.",
-  },
-];
-
 export default function Home() {
-  const productSchema = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "AMO Love Potion Pure Juice",
-    description:
-      "Premium 0.0% alcohol grape juice with rich Moscato grape character, honey melon and passion fruit aroma. Elegant, refreshing, and fully alcohol-free.",
-    image: "https://www.amopurejuice.com/amo.avif",
-    brand: {
-      "@type": "Brand",
-      name: "AMO Pure Juice",
-      logo: "https://www.amopurejuice.com/logo.avif",
-    },
-    offers: {
-      "@type": "Offer",
-      price: "150000",
-      priceCurrency: "IDR",
-      availability: "https://schema.org/InStock",
-      url: "https://www.amopurejuice.com",
-      seller: {
-        "@type": "Organization",
-        name: "AMO Pure Juice",
-      },
-    },
-    additionalProperty: [
-      {
-        "@type": "PropertyValue",
-        name: "Volume",
-        value: "750 ml",
-      },
-      {
-        "@type": "PropertyValue",
-        name: "Alcohol by Volume",
-        value: "0.0%",
-      },
-      {
-        "@type": "PropertyValue",
-        name: "BPOM Registration",
-        value: "RI ML 010982004200170",
-      },
-    ],
-    category: "Non-Alcoholic Beverages",
-  };
-
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "AMO Pure Juice",
-    url: "https://www.amopurejuice.com",
-    logo: "https://www.amopurejuice.com/logo.avif",
-    description:
-      "Premium non-alcoholic grape juice brand offering elegant, sophisticated beverages for conscious living.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "Customer Service",
-      availableLanguage: ["English", "Indonesian"],
-    },
-  };
-
   return (
-    <main className="bg-amber-50 text-green-950">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <section className="relative overflow-hidden">
-        <div className="absolute -top-28 left-0 h-80 w-80 rounded-full bg-amber-200 blur-3xl" />
-        <div className="absolute -right-20 top-24 h-72 w-72 rounded-full bg-yellow-200 blur-3xl" />
+    <main className="hero-shell relative min-h-screen overflow-hidden text-orange-950">
+      <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-orange-200/70 blur-3xl" />
+      <div className="pointer-events-none absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-orange-300/50 blur-3xl" />
 
-        <div className="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col items-start gap-10 px-6 py-12 lg:grid lg:grid-cols-2 lg:items-center lg:px-10 lg:py-16">
-          <div className="w-full space-y-5 lg:order-1">
-            <p className="inline-flex rounded-full border border-amber-300 bg-white px-4 py-2 text-sm font-medium text-amber-800">
-              AMO Pure Juice
-            </p>
-            
-            <div className="relative mx-auto mt-4 w-full max-w-md lg:hidden">
-              <div className="rounded-[2rem] border border-amber-200 bg-white/80 p-6 shadow-lg shadow-amber-200/70 backdrop-blur-sm">
+      <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-12">
+        <header className="relative z-20 flex items-center justify-between">
+          <p className="text-xl font-semibold tracking-[0.28em] text-orange-900">A MO</p>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Order on WhatsApp"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-orange-500 text-white shadow-md shadow-orange-500/35 transition hover:bg-orange-600"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              className="h-5 w-5"
+            >
+              <path d="M12.04 2C6.5 2 2 6.47 2 12c0 1.77.46 3.49 1.34 5l-1.42 5.18 5.3-1.39A10.02 10.02 0 0 0 12.04 22C17.58 22 22 17.53 22 12S17.58 2 12.04 2Zm0 18.3c-1.53 0-3.02-.41-4.33-1.2l-.31-.18-3.15.83.84-3.08-.2-.32a8.24 8.24 0 0 1-1.27-4.35c0-4.58 3.76-8.3 8.42-8.3 2.23 0 4.33.86 5.9 2.42A8.2 8.2 0 0 1 20.46 12c0 4.58-3.75 8.3-8.42 8.3Zm4.56-6.2c-.25-.12-1.47-.72-1.7-.8-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.53.06-.25-.12-1.04-.38-1.99-1.2-.74-.65-1.24-1.45-1.38-1.7-.15-.24-.02-.38.1-.5.11-.1.25-.26.37-.39.12-.13.16-.22.24-.36.08-.16.04-.3-.02-.42-.06-.12-.54-1.29-.74-1.76-.2-.49-.4-.42-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.17.86 2.3.98 2.46.12.16 1.68 2.57 4.1 3.6.57.25 1.02.4 1.37.5.58.18 1.1.15 1.52.09.47-.07 1.47-.6 1.67-1.17.2-.58.2-1.07.14-1.17-.06-.1-.22-.16-.47-.28Z" />
+            </svg>
+          </a>
+        </header>
+
+        <section className="hero-inner relative mt-6 flex flex-1 items-center overflow-hidden rounded-[2.3rem] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <p className="hero-silhouette-text" aria-hidden>
+            GRAPE
+            <br />
+            JUICE
+          </p>
+          <div className="relative z-10 grid w-full items-center gap-7 lg:gap-6 lg:grid-cols-[1.1fr_0.95fr_1fr]">
+            <div className="relative space-y-4">
+              <p className="text-base font-bold uppercase tracking-[0.24em] text-orange-700/90 sm:text-lg">Premium Orange Sparkling Juice</p>
+              <p className="max-w-md text-base leading-relaxed text-orange-900/75 sm:text-lg">
+                A bright orange, premium 0.0% beverage with a clean sparkling finish. Fresh flavor, modern expression, and crafted for elevated social moments.
+              </p>
+              <ul className="max-w-md space-y-2.5 pt-1">
+                {productDetails.map((item) => (
+                  <li key={item.label} className="flex items-center gap-3 rounded-lg bg-white/25 px-3 py-2 text-sm font-medium text-orange-900/85 sm:text-base">
+                    <span className="inline-flex w-5 justify-center text-base" aria-hidden>
+                      {item.icon}
+                    </span>
+                    <span>{item.label}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="inline-flex w-fit rounded-full bg-white/60 px-4 py-2 text-2xl font-extrabold tracking-wide text-orange-700 shadow-md shadow-orange-300/40 sm:text-3xl">IDR 350,000</p>
+            </div>
+
+            <div className="relative z-20 mx-auto w-full max-w-[390px] sm:max-w-[440px] lg:max-w-[500px]">
+              <div className="product-can-wrap relative z-10">
                 <Image
-                  src="/amo.avif"
-                  alt="AMO Love Potion Pure Juice 750ml bottle - 0.0% alcohol grape juice"
-                  width={600}
-                  height={900}
+                  src="/Amo-Bottle-Halal.png"
+                  alt="AMO bright orange flavor can"
+                  width={760}
+                  height={1200}
                   priority
-                  className="mx-auto h-auto w-full drop-shadow-xl"
+                  className="product-can mx-auto h-auto w-full"
                 />
               </div>
-              <div className="absolute right-4 top-8">
-                <Image
-                  src="/logo.avif"
-                  alt="AMO Pure Juice Logo"
-                  width={80}
-                  height={80}
-                  className="h-auto w-16 drop-shadow-md"
-                />
+            </div>
+
+            <aside className="z-10 w-full max-w-md justify-self-end rounded-3xl bg-white/35 p-5 backdrop-blur-sm sm:p-6">
+              <h2 className="text-lg font-bold text-orange-950 sm:text-xl">Why AMO Pure Juice is Different</h2>
+              <p className="mt-3 text-sm leading-relaxed text-orange-900/80 sm:text-base">
+                Unlike typical 0% alcohol wines that are dealcoholized, AMO Pure Juice is crafted from the ground up as a premium pure grape juice. We never add then remove alcohol—we celebrate the grape in its purest form.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-orange-900/80 sm:text-base">
+                While other brands focus on mimicking wine, we focus on delivering authentic grape character with sophisticated flavor complexity. The result is a naturally vibrant taste without the chemical processes that can strip away aroma and authenticity.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-orange-900/80 sm:text-base">
+                AMO Pure Juice is honest, clean, and unapologetically juice—elevating what non-alcoholic beverage experiences can be.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2.5">
+                <span className="inline-flex items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-orange-900">BPOM Certified</span>
+                <span className="inline-flex items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-orange-900">Halal Certified</span>
+                <span className="inline-flex items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-orange-900">0.0% Alcohol</span>
               </div>
-              <div className="absolute -bottom-4 -left-2 rounded-2xl border border-amber-200 bg-white px-4 py-2 text-sm font-semibold text-green-900 shadow-md shadow-amber-200/70">
-                750 ml • ABV 0%
-              </div>
-            </div>
-
-            <h1 className="text-4xl font-bold leading-tight md:text-6xl lg:max-w-xl">
-              Premium 0.0% alcohol <span className="text-amber-600">grape juice</span> for modern celebration.
-            </h1>
-            <p className="max-w-xl text-base text-green-900/80 md:text-lg">
-              AMO Love Potion Pure Juice 750 ml delivers rich grape character with honey melon and passion fruit
-              aroma. Elegant, refreshing, and fully alcohol-free.
-            </p>
-
-            <div className="text-3xl font-bold text-green-900 md:text-4xl">
-              Rp 350,000
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              {keyFacts.map((fact) => (
-                <span
-                  key={fact.label}
-                  className="flex items-center gap-2 text-sm font-semibold text-green-900"
-                >
-                  <span className="text-lg text-green-700">{fact.icon}</span>
-                  {fact.label}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              {tasteNotes.map((note) => (
-                <span
-                  key={note.label}
-                  className="flex items-center gap-2 text-sm font-medium text-green-900"
-                >
-                  <span className="text-lg text-green-700">{note.icon}</span>
-                  {note.label}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-green-700 px-7 py-3.5 text-center text-base font-semibold text-white transition hover:bg-green-800"
+                className="mt-5 hidden items-center justify-center rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-orange-500/35 transition hover:-translate-y-0.5 hover:bg-orange-600 sm:inline-flex"
               >
-                Buy Now on WhatsApp
+                Order Now
               </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-amber-400 bg-white px-7 py-3.5 text-center text-base font-semibold text-green-900 transition hover:bg-amber-50"
-              >
-                Chat for Bulk Order
-              </a>
-            </div>
-            
-            <p className="text-center text-sm text-green-900/60 sm:text-left">
-              BPOM RI ML 010982004200170
-            </p>
+            </aside>
           </div>
 
-          <div className="relative mx-auto hidden w-full max-w-md lg:order-2 lg:block">
-            <div className="rounded-[2rem] border border-amber-200 bg-white/80 p-6 shadow-lg shadow-amber-200/70 backdrop-blur-sm md:p-8">
-              <Image
-                src="/amo.avif"
-                alt="AMO Love Potion Pure Juice 750ml bottle - 0.0% alcohol grape juice"
-                width={600}
-                height={900}
-                priority
-                className="mx-auto h-auto w-full drop-shadow-xl"
-              />
-            </div>
-            <div className="absolute right-6 top-12">
-              <Image
-                src="/logo.avif"
-                alt="AMO Pure Juice Logo"
-                width={100}
-                height={100}
-                className="h-auto w-20 drop-shadow-lg"
-              />
-            </div>
-            <div className="absolute -bottom-4 -left-8 rounded-2xl border border-amber-200 bg-white px-5 py-3 text-sm font-semibold text-green-900 shadow-md shadow-amber-200/70">
-              750 ml • ABV 0%
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      <section className="mx-auto max-w-6xl px-6 py-14 lg:px-10">
-        <h2 className="text-3xl font-bold md:text-4xl">Why AMO Pure Juice</h2>
-        <p className="mt-3 max-w-3xl text-green-900/80">
-          Inspired by AMO&apos;s love story, this product brings premium flavor and lifestyle symbolism into one pure,
-          non-alcoholic bottle.
-        </p>
-
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {highlights.map((item) => (
-            <article
-              key={item.title}
-              className="rounded-2xl border border-amber-200 bg-white p-6 shadow-sm shadow-amber-100"
-            >
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="mt-2 text-green-900/80">{item.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white/70 py-14">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2 lg:px-10">
-          <article className="rounded-3xl border border-amber-200 bg-white p-8 shadow-sm shadow-amber-100">
-            <h2 className="text-3xl font-bold">Product Focus</h2>
-            <ul className="mt-5 space-y-3 text-green-900/90">
-              <li>AMO Love Potion Pure Juice - 750 ml</li>
-              <li>Category: Premium Grape Juice / Sparkling Style</li>
-              <li>Character: Fresh, rich, aromatic, celebratory</li>
-              <li>Current price: Rp350.000</li>
-            </ul>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-7 inline-block rounded-full bg-green-700 px-7 py-3 text-base font-semibold text-white transition hover:bg-green-800"
-            >
-              Buy AMO Juice on WhatsApp
-            </a>
-          </article>
-
-          <article className="rounded-3xl border border-green-700 bg-green-900 p-8 text-green-50 shadow-sm shadow-green-700/30">
-            <h2 className="text-3xl font-bold">Why AMO Pure Juice is Different</h2>
-            <p className="mt-4 text-green-100/90">
-              Unlike typical 0% alcohol wines that are dealcoholized, AMO Pure Juice is crafted from the ground up as
-              a premium pure grape juice. We never add then remove alcohol—we celebrate the grape in its purest form.
-            </p>
-            <p className="mt-4 text-green-100/90">
-              While other brands focus on mimicking wine, we focus on delivering authentic grape character with
-              sophisticated flavor complexity. The result is a naturally vibrant taste without the chemical processes
-              that can strip away aroma and authenticity.
-            </p>
-            <p className="mt-4 text-green-100/90">
-              AMO Pure Juice is honest, clean, and unapologetically juice—elevating what non-alcoholic beverage
-              experiences can be.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-16 pt-16 text-center lg:px-10">
-        <h2 className="text-3xl font-bold md:text-4xl">Ready to order AMO Pure Juice?</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-green-900/80">
-          Tap the button below and continue your purchase directly on WhatsApp.
-        </p>
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-orange-200/70 bg-white/85 p-4 backdrop-blur sm:hidden">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 inline-block rounded-full bg-green-700 px-10 py-4 text-lg font-semibold text-white transition hover:bg-green-800"
+          className="inline-flex w-full items-center justify-center rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-orange-500/35 transition hover:bg-orange-600"
         >
-          Chat & Buy via WhatsApp
-        </a>
-        <div className="mt-6 flex justify-center">
-          <Image
-            src="/halal.avif"
-            alt="Halal Certified"
-            width={120}
-            height={120}
-            className="h-auto w-24 drop-shadow-md"
-          />
-        </div>
-      </section>
-
-      <div className="fixed inset-x-0 bottom-0 z-20 border-t border-amber-200 bg-white/95 p-3 backdrop-blur sm:hidden">
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block rounded-full bg-green-700 px-6 py-3 text-center text-base font-semibold text-white"
-        >
-          Buy via WhatsApp
+          Order Now
         </a>
       </div>
     </main>
