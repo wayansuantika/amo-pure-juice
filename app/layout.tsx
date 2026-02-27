@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.amopurejuice.com"),
   title: {
-    default: "AMO Pure Juice | 0.0% Alcohol Grape Juice",
+    default: "AMO Pure Juice | Premium 0.0% Alcohol Grape Juice",
     template: "%s | AMO Pure Juice",
   },
   description:
-    "AMO Pure Juice is a premium 0.0% alcohol grape juice with a refined sparkling profile, crafted for modern conscious living.",
+    "AMO Pure Juice is a premium 0.0% alcohol grape juice with moscato character, elegant aroma notes, and direct WhatsApp ordering.",
   keywords: [
     "AMO Pure Juice",
     "grape juice",
@@ -32,28 +32,28 @@ export const metadata: Metadata = {
     "Moscato grape juice",
   ],
   openGraph: {
-    title: "AMO Pure Juice | 0.0% Alcohol Grape Juice",
+    title: "AMO Pure Juice | Premium 0.0% Alcohol Grape Juice",
     description:
-      "Premium non-alcoholic grape juice with elegant taste notes and a go-green philosophy.",
+      "Premium non-alcoholic grape juice with elegant aroma notes and modern celebration character.",
     type: "website",
     locale: "en_US",
     url: "https://www.amopurejuice.com",
     siteName: "AMO Pure Juice",
     images: [
       {
-        url: "/amo.avif",
-        width: 600,
-        height: 900,
-        alt: "AMO Love Potion Pure Juice 750ml bottle - 0.0% alcohol grape juice",
+        url: "/Amo-Bottle-Halal.png",
+        width: 760,
+        height: 1200,
+        alt: "AMO Pure Juice premium 0.0% alcohol grape juice bottle",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AMO Pure Juice | 0.0% Alcohol Grape Juice",
+    title: "AMO Pure Juice | Premium 0.0% Alcohol Grape Juice",
     description:
-      "Premium non-alcoholic grape juice with elegant taste notes and a go-green philosophy.",
-    images: ["/amo.avif"],
+      "Premium non-alcoholic grape juice with elegant aroma notes and modern celebration character.",
+    images: ["/Amo-Bottle-Halal.png"],
   },
   alternates: {
     canonical: "/",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
-    google: "your-google-verification-code",
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
 };
 

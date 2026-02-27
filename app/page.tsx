@@ -10,7 +10,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 export const metadata: Metadata = {
   title: "Let’s Drink | AMO Pure Juice",
   description:
-    "Modern premium beverage landing page for AMO Pure Juice with bold hero composition and direct order flow.",
+    "Discover AMO Pure Juice, premium 0.0% alcohol grape juice 750 ml with moscato, honey melon, and passion fruit notes. Order directly via WhatsApp.",
 };
 
 const productDetails = [
@@ -22,8 +22,63 @@ const productDetails = [
 ];
 
 export default function Home() {
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "AMO Pure Juice",
+    description:
+      "Premium 0.0% alcohol grape juice with moscato character, honey melon aroma, and passion fruit finish.",
+    image: "https://www.amopurejuice.com/Amo-Bottle-Halal.png",
+    brand: {
+      "@type": "Brand",
+      name: "AMO Pure Juice",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "350000",
+      priceCurrency: "IDR",
+      availability: "https://schema.org/InStock",
+      url: "https://www.amopurejuice.com",
+      seller: {
+        "@type": "Organization",
+        name: "AMO Pure Juice",
+      },
+    },
+    additionalProperty: [
+      {
+        "@type": "PropertyValue",
+        name: "Volume",
+        value: "750 ml",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Alcohol by Volume",
+        value: "0.0%",
+      },
+    ],
+    category: "Non-Alcoholic Beverages",
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "AMO Pure Juice",
+    url: "https://www.amopurejuice.com",
+    logo: "https://www.amopurejuice.com/logo.avif",
+    description:
+      "Premium non-alcoholic grape juice brand focused on modern, alcohol-free celebration moments.",
+  };
+
   return (
     <main className="hero-shell relative min-h-screen overflow-hidden text-orange-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-orange-200/70 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-orange-300/50 blur-3xl" />
 
