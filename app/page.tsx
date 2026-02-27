@@ -69,6 +69,26 @@ export default function Home() {
       "Premium non-alcoholic grape juice brand focused on modern, alcohol-free celebration moments.",
   };
 
+  const brandProfile = {
+    brand: {
+      name: "AMO Pure Juice",
+      website: "https://amopurejuice.com",
+      description:
+        "Premium grape juice brand bringing fresh grapes from Spain to Indonesia, offering natural goodness with zero alcohol.",
+    },
+    owner: {
+      names: ["David", "Agnez"],
+      role: "Founders",
+      location: "Indonesia",
+    },
+    creator: {
+      repository: "https://github.com/wayansuantika/amo-pure-juice",
+      developer: "Wayan Suantika",
+      technology: ["Next.js 16", "TypeScript", "Tailwind CSS"],
+      role: "Website Creator",
+    },
+  };
+
   return (
     <main className="hero-shell relative min-h-screen overflow-hidden text-orange-950">
       <script
@@ -78,6 +98,11 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        id="amo-brand-profile"
+        type="application/json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(brandProfile) }}
       />
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-orange-200/70 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-20 h-72 w-72 rounded-full bg-orange-300/50 blur-3xl" />
@@ -115,16 +140,29 @@ export default function Home() {
               <p className="max-w-md text-base leading-relaxed text-orange-900/75 sm:text-lg">
                 A bright orange, premium 0.0% beverage with a clean sparkling finish. Fresh flavor, modern expression, and crafted for elevated social moments.
               </p>
-              <ul className="max-w-md space-y-2.5 pt-1">
-                {productDetails.map((item) => (
-                  <li key={item.label} className="flex items-center gap-3 rounded-lg bg-white/25 px-3 py-2 text-sm font-medium text-orange-900/85 sm:text-base">
-                    <span className="inline-flex w-5 justify-center text-base" aria-hidden>
-                      {item.icon}
-                    </span>
-                    <span>{item.label}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="max-w-md space-y-2.5 pt-1">
+                <div className="grid grid-cols-2 gap-2.5">
+                  {productDetails.slice(0, 2).map((item) => (
+                    <p key={item.label} className="flex items-center gap-3 rounded-lg bg-white/25 px-3 py-2 text-sm font-medium text-orange-900/85 sm:text-base">
+                      <span className="inline-flex w-5 justify-center text-base" aria-hidden>
+                        {item.icon}
+                      </span>
+                      <span>{item.label}</span>
+                    </p>
+                  ))}
+                </div>
+
+                <ul className="space-y-2.5">
+                  {productDetails.slice(2).map((item) => (
+                    <li key={item.label} className="flex items-center gap-3 rounded-lg bg-white/25 px-3 py-2 text-sm font-medium text-orange-900/85 sm:text-base">
+                      <span className="inline-flex w-5 justify-center text-base" aria-hidden>
+                        {item.icon}
+                      </span>
+                      <span>{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <p className="inline-flex w-fit rounded-full bg-white/60 px-4 py-2 text-2xl font-extrabold tracking-wide text-orange-700 shadow-md shadow-orange-300/40 sm:text-3xl">IDR 350,000</p>
             </div>
 
@@ -142,7 +180,7 @@ export default function Home() {
             </div>
 
             <aside className="z-10 w-full max-w-md justify-self-end rounded-3xl bg-white/35 p-5 backdrop-blur-sm sm:p-6">
-              <h2 className="text-lg font-bold text-orange-950 sm:text-xl">Why AMO Pure Juice is Different</h2>
+              <h2 className="text-lg font-bold text-orange-950 sm:text-xl">Why AMO Pure Juice is Different?</h2>
               <p className="mt-3 text-sm leading-relaxed text-orange-900/80 sm:text-base">
                 Unlike typical 0% alcohol wines that are dealcoholized, AMO Pure Juice is crafted from the ground up as a premium pure grape juice. We never add then remove alcohol—we celebrate the grape in its purest form.
               </p>
@@ -155,7 +193,6 @@ export default function Home() {
               <div className="mt-4 flex flex-wrap gap-2.5">
                 <span className="inline-flex items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-orange-900">BPOM Certified</span>
                 <span className="inline-flex items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-orange-900">Halal Certified</span>
-                <span className="inline-flex items-center rounded-full bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-orange-900">0.0% Alcohol</span>
               </div>
               <a
                 href={whatsappUrl}
